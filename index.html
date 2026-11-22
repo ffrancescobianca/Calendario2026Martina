@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario dell’Avvento 2026 di Martina</title>
+<link rel="apple-touch-icon" href="icona.png">
+<link rel="icon" href="icona.png">
+<meta name="apple-mobile-web-app-title" content="Avvento Martina">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Nunito:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f8ecdc; --bg2:#f1dcc2; --ink:#4a2326; --muted:#8a5a52;
+  --door:#9c2f3a; --door2:#7d222d; --gold:#d9a441; --green:#2f5d46;
+  --card:#fff8ee; --shadow:rgba(74,35,38,.25);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#16241d; --bg2:#0e1914; --ink:#f6e8d2; --muted:#c9a98e;
+    --door:#b13a46; --door2:#8a2833; --gold:#f0bf62; --green:#3f7a5d;
+    --card:#22362b; --shadow:rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#16241d; --bg2:#0e1914; --ink:#f6e8d2; --muted:#c9a98e;
+  --door:#b13a46; --door2:#8a2833; --gold:#f0bf62; --green:#3f7a5d;
+  --card:#22362b; --shadow:rgba(0,0,0,.5);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Nunito",system-ui,sans-serif;
+  background:radial-gradient(circle at 50% -10%,var(--bg),var(--bg2) 90%) fixed;overflow-x:hidden}
+.snow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.snow i{position:absolute;top:-10px;color:var(--gold);opacity:.7;font-style:normal;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) translateX(30px) rotate(200deg)}}
+@media (prefers-reduced-motion:reduce){.snow{display:none}}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:28px 18px 48px}
+header{text-align:center;margin-bottom:22px}
+.garland{font-size:1.5rem;letter-spacing:.35em;white-space:nowrap;overflow:hidden}
+h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,8vw,3.2rem);margin:.2em 0 0;line-height:1.1}
+h1 em{color:var(--door);font-style:italic}
+.sub{color:var(--muted);margin:.6em auto 0;max-width:34ch}
+.bar{display:flex;gap:10px;justify-content:center;align-items:center;margin:18px 0 6px;flex-wrap:wrap}
+.pill{background:var(--card);border:1px solid var(--gold);border-radius:99px;padding:6px 14px;font-size:.9rem}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--green);color:#fff;border:0;border-radius:99px;padding:8px 16px}
+.btn:focus-visible,.door:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(62px,17vw,100px);grid-auto-flow:dense;gap:10px}
+.door{width:100%;height:100%;padding:0;border:0;border-radius:16px;position:relative;color:#fff8ee;
+  background:repeating-linear-gradient(45deg,var(--door) 0 8px,var(--door2) 8px 16px);
+  box-shadow:0 6px 14px var(--shadow),inset 0 0 0 3px var(--gold);
+  font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.3rem,6vw,2rem);
+  transition:transform .2s}
+.door:not(:disabled):hover{transform:translateY(-3px) rotate(-1deg)}
+.door:disabled{cursor:not-allowed;filter:saturate(.55) brightness(.85)}
+.door small{position:absolute;bottom:5px;left:0;right:0;font-family:"Nunito",sans-serif;font-size:.7rem;opacity:.9}
+.door.open{background:var(--card);color:var(--ink);box-shadow:0 3px 8px var(--shadow),inset 0 0 0 3px var(--green)}
+.door.open span{font-size:1.5rem}
+.door.today:not(.open){animation:glow 2s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 4px var(--gold),0 6px 18px var(--shadow)}}
+.s-arch{border-radius:999px 999px 12px 12px}
+.s-tall{grid-row:span 2;border-radius:999px 999px 12px 12px}
+.s-wide{grid-column:span 2;border-radius:22px}
+.s-round{border-radius:50%}
+.s-square{border-radius:8px}
+.s-big{grid-column:span 2;grid-row:span 2;border-radius:999px 999px 16px 16px;font-size:clamp(2rem,10vw,3.4rem)}
+.door::after{content:"";position:absolute;right:14%;top:56%;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.s-round::after,.door.open::after{display:none}
+body.locked{overflow:hidden;height:100vh}
+main.hidden{opacity:0;visibility:hidden;height:0;overflow:hidden;padding:0}
+main{transition:opacity 1s}
+#gate{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  background:radial-gradient(circle at 50% -10%,var(--bg),var(--bg2) 90%);cursor:pointer;transition:opacity .8s;padding:20px;text-align:center}
+#gate.gone{opacity:0;pointer-events:none}
+#gate h2{font-family:"Playfair Display",Georgia,serif;margin:0;font-size:clamp(1.3rem,5vw,1.8rem)}
+#gate p{margin:0;color:var(--muted);animation:glow2 2s ease-in-out infinite}
+@keyframes glow2{50%{opacity:.4}}
+.frame{position:relative;width:min(68vw,270px);aspect-ratio:3/5;border:8px solid var(--gold);border-radius:999px 999px 10px 10px;perspective:900px;box-shadow:0 14px 40px var(--shadow)}
+.inside{position:absolute;inset:0;border-radius:999px 999px 2px 2px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;
+  background:radial-gradient(circle at 50% 60%,#ffe2a0,#e8a64a 70%)}
+.leaf{position:absolute;inset:0;border-radius:999px 999px 2px 2px;transform-origin:left center;transition:transform 1.2s ease;
+  background:repeating-linear-gradient(45deg,var(--door) 0 8px,var(--door2) 8px 16px);box-shadow:inset 0 0 0 4px var(--gold);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.leaf::after{content:"";position:absolute;right:12%;top:55%;width:14px;height:14px;border-radius:50%;background:var(--gold)}
+#gate.opening .leaf{transform:rotateY(80deg);filter:brightness(.6)}
+.leaf{transition:transform 1.2s ease,filter 1.2s}
+#gate h2{color:var(--ink)}
+#gate .rd{color:#ff4d5a;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+:root:root{--ink:#f6e8d2;--muted:#e3c9a6;--card:#22362b;--gold:#f0bf62;--door:#b8323f;--door2:#8a2230;--bg:#245b43;--bg2:#0b241a;--green:#3f7a5d;--shadow:rgba(0,0,0,.5);color-scheme:dark}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(240,191,98,.2) 1.5px,transparent 2.5px),radial-gradient(rgba(200,50,60,.22) 2.5px,transparent 3.5px);background-size:46px 46px;background-position:0 0,23px 23px}
+#theme{display:none}
+h1 em{color:var(--gold)}
+.snow i{color:#fff}
+main:not(.hidden){padding-top:54px}
+.lights{position:fixed;top:0;left:0;right:0;z-index:6;display:flex;justify-content:space-around;padding-top:env(safe-area-inset-top,0px);pointer-events:none}
+.lights::before{content:"";position:absolute;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 6px);height:2px;background:#06150f}
+.lights i{display:block;width:11px;height:16px;border-radius:50% 50% 50% 50%/35% 35% 65% 65%;background:var(--c);box-shadow:0 0 10px 2px var(--c);animation:tw 1.6s ease-in-out infinite}
+@keyframes tw{50%{opacity:.35}}
+.door{perspective:700px;border:3px solid var(--gold);background:none;box-shadow:0 8px 16px var(--shadow)}
+.door::after{display:none}
+.door.open{background:none;color:#fff8ee;box-shadow:0 8px 16px var(--shadow)}
+.door:not(:disabled):hover{transform:none}
+.door i{position:absolute;inset:0;border-radius:inherit;font-style:normal;display:flex;align-items:center;justify-content:center}
+.in{background:radial-gradient(circle at 50% 75%,#ffe2a0,#e8a64a 75%);font-size:clamp(1.4rem,6vw,2.2rem)}
+.lf{transform-origin:left center;transition:transform .8s cubic-bezier(.3,.7,.3,1);background:linear-gradient(135deg,var(--door),var(--door2));box-shadow:inset 0 0 0 2px rgba(255,225,160,.5)}
+.lf::before{content:"";position:absolute;inset:14% 18%;border:2px solid rgba(255,225,160,.45);border-radius:6px}
+.lf::after{content:"";position:absolute;right:12%;top:54%;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.lf b{font-weight:400;position:relative;z-index:1}
+.door.open .lf{transform:rotateY(82deg);filter:brightness(.6)}
+.lf{transition:transform .8s cubic-bezier(.3,.7,.3,1),filter .8s}
+.door{overflow:hidden}
+.door:not(.open):not(:disabled):hover .lf{transform:rotateY(16deg)}
+.grid{grid-auto-rows:auto;grid-auto-flow:row;grid-template-columns:repeat(4,1fr);gap:16px 12px}
+.door.door{grid-row:auto;grid-column:auto;height:auto;aspect-ratio:3/4;border-radius:999px 999px 10px 10px;font-size:clamp(1.2rem,5.5vw,1.7rem)}
+.door:nth-child(even) .lf{background:linear-gradient(135deg,#2f6e50,#1b4a35)}
+.lf::before{border-radius:999px 999px 4px 4px;inset:16% 20% 12%}
+@media (min-width:600px){.grid{grid-template-columns:repeat(6,1fr)}}
+#lock{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;text-align:center;background:radial-gradient(circle at 50% -10%,var(--bg),var(--bg2) 90%)}
+#lock h2{font-family:"Playfair Display",Georgia,serif;margin:0;font-size:clamp(1.3rem,5vw,1.8rem)}
+#lock p{margin:0;color:var(--muted)}
+#lock input{font:inherit;font-size:1.1rem;padding:12px 16px;border-radius:99px;border:2px solid var(--gold);background:var(--card);color:var(--ink);text-align:center;width:min(80vw,280px)}
+#lock .err{color:#ff8a93;min-height:1.2em}
+#gate{overflow:hidden;background:linear-gradient(rgba(18,10,12,.4),rgba(18,10,12,.68)),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2764%27%20height%3D%2732%27%3E%3Crect%20width%3D%2764%27%20height%3D%2732%27%20fill%3D%27%23cfc2b2%27%2F%3E%3Crect%20x%3D%271%27%20y%3D%271%27%20width%3D%2730%27%20height%3D%2714%27%20fill%3D%27%23a4503e%27%2F%3E%3Crect%20x%3D%2733%27%20y%3D%271%27%20width%3D%2730%27%20height%3D%2714%27%20fill%3D%27%2396432f%27%2F%3E%3Crect%20x%3D%27-15%27%20y%3D%2717%27%20width%3D%2730%27%20height%3D%2714%27%20fill%3D%27%239a4636%27%2F%3E%3Crect%20x%3D%2717%27%20y%3D%2717%27%20width%3D%2730%27%20height%3D%2714%27%20fill%3D%27%23ad5a46%27%2F%3E%3Crect%20x%3D%2749%27%20y%3D%2717%27%20width%3D%2730%27%20height%3D%2714%27%20fill%3D%27%239a4636%27%2F%3E%3C%2Fsvg%3E");background-size:auto,80px 40px}
+#gate::after{content:"";position:absolute;left:-5%;right:-5%;bottom:0;height:90px;pointer-events:none;background:radial-gradient(ellipse 55% 100% at 22% 100%,#fff 97%,transparent 100%),radial-gradient(ellipse 65% 100% at 78% 100%,#eef4fa 97%,transparent 100%)}
+#gate h2,#gate p{text-shadow:0 2px 8px rgba(0,0,0,.7)}
+#gate p{color:#f6e8d2}
+.cd{margin-top:6px;color:var(--gold);font-family:"Playfair Display",Georgia,serif;font-size:1.05rem}
+.cd{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.cd div{min-width:62px;padding:10px 6px 6px;border-radius:14px;background:var(--card);border:2px solid var(--gold);box-shadow:0 6px 14px var(--shadow)}
+.cd b{display:block;font-family:"Playfair Display",Georgia,serif;font-size:1.9rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1}
+.cd small{display:block;margin-top:4px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sign{position:absolute;right:1%;top:calc(55% + 21px);width:38%;padding:7px 4px;border-radius:6px;background:#f6e8d2;color:#8a2230;border:2px solid var(--gold);font-family:"Playfair Display",Georgia,serif;font-size:.72rem;line-height:1.2;text-align:center;box-shadow:0 4px 8px rgba(0,0,0,.4);transform-origin:64% -14px;animation:sway 3s ease-in-out infinite}
+.sign::before{content:"";position:absolute;right:36%;top:-16px;width:2px;height:14px;background:var(--gold)}
+@keyframes sway{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
+.modal{position:fixed;inset:0;z-index:5;background:rgba(20,8,10,.6);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.card{background:var(--card);border:2px solid var(--gold);border-radius:22px;max-width:380px;width:100%;
+  padding:28px 24px;text-align:center;box-shadow:0 20px 50px var(--shadow);animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.85) rotate(-3deg);opacity:0}}
+.card .n{color:var(--muted);letter-spacing:.2em;font-size:.8rem;text-transform:uppercase}
+.card .e{font-size:3.2rem;margin:.2em 0}
+.card h2{font-family:"Playfair Display",Georgia,serif;margin:.1em 0 .4em}
+.card p{line-height:1.6;margin:0 0 1.2em}
+footer{text-align:center;color:var(--muted);margin-top:28px;font-size:.9rem}
+</style>
+</head>
+<body class="locked">
+<div class="snow" id="snow" aria-hidden="true"></div>
+<div id="lock">
+  <div style="font-size:3rem">🔒</div>
+  <h2>Solo per te, Martina</h2>
+  <p>Scrivi la parola segreta per entrare</p>
+  <input id="code" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Parola segreta">
+  <p class="err" id="err"></p>
+  <button class="btn" id="go">Entra</button>
+  <div class="cd" id="cd" aria-label="Conto alla rovescia"></div>
+</div>
+<div id="gate" role="button" tabindex="0" aria-label="Apri la porta">
+  <h2>Calendario dell’Avvento 2026 di <span class="rd">Martina</span></h2>
+  <div class="frame"><div class="inside">✨</div><div class="leaf"><span aria-hidden="true">🎄</span><div class="sign">Bussa<br>per entrare</div></div></div>
+  
+</div>
+<main class="hidden" id="main">
+  <header>
+    <div class="garland" aria-hidden="true">🎄✨🕯️✨🎄✨🕯️✨🎄</div>
+    <h1>Calendario dell’Avvento 2026<br>di <em>Martina</em></h1>
+    <p class="sub">24 piccole sorprese, una al giorno, per scaldare questo Natale. ☕</p>
+    <div class="bar">
+      <span class="pill" id="count">0 / 24 aperte</span>
+      <button class="btn" id="theme" aria-label="Cambia tema">🌙</button>
+    </div>
+  </header>
+  <section class="grid" id="grid" aria-label="Caselle del calendario"></section>
+  <footer>E uora nun ciccari nenti pi 3 misi</footer>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="card">
+    <div class="n" id="mn"></div><div class="e" id="me"></div>
+    <h2 id="mt"></h2><p id="mp"></p>
+    <button class="btn" id="close">Grazie 💌</button>
+  </div>
+</div>
+<script>
+const M=[
+["🎓","Si parte, futura dottoressa","Primo dicembre. Hai già psicanalizzato il calendario: dice che soffre d’ansia da prestazione. Su, apri la casella.","😜 Si scherza"],
+["🥶","Fuorisede a Torino","Vivi a Torino da anni e ancora non hai capito che il Po non è il mare. Smetti di fissarlo con quella faccia nostalgica.","😜 Si scherza"],
+["✈️","Torino, ancora","Il rubinetto perde? Torino. Hai la febbre? Torino. Il mondo ha dei problemi? Torino. Dì pure che ti pagano la pubblicità, ormai ti credo.","😜 Si scherza"],
+["🌊","Il mare è religione","Il mare per te è una religione: ci pensi a Torino, ne parli in ogni conversazione, ti manca solo la tonaca.","😜 Si scherza"],
+["💃","Danza della pioggia","Quando balli sembri una medusa colpita da un fulmine. Ma almeno la medusa non chiede “sono brava, vero?” a tutti i presenti.","😜 Si scherza"],
+["📸","Fotografa ufficiale","Cinquanta foto allo stesso tramonto e poi scegli sempre quella col dito davanti all’obiettivo. Che occhio, Martina.","😜 Si scherza"],
+["✈️","Valigia di Mary Poppins","Parti per tre giorni con quattro valigie e poi ti lamenti che pesano. Il facchino ti ha già salvata tra i preferiti.","😜 Si scherza"],
+["🛋️","Psicologa del divano","Studi i traumi degli altri e poi non riesci a decidere cosa mettere per uscire. Diagnosi per te: indecisione cronica, senza speranza.","😜 Si scherza"],
+["🏝️","Turista in Sicilia","Torni giù solo per le feste e per l’estate, come i turisti con lo sconto. Per fortuna c’è la mamma, che ti riempie il frigo e ti infila qualche banconota in tasca.","😜 Si scherza"],
+["🎧","Gusti musicali","La tua playlist è un attentato alle orecchie. Persino le cuffie si scollegano da sole per la disperazione.","😜 Si scherza"],
+["📚","Terzo anno di psicologia","Dici che psicologia ti ha cambiato la vita. Ok, ma non è obbligatorio analizzare il mio modo di mangiare la pasta.","😜 Si scherza"],
+["🎶","Ballerina part-time","Ami ballare, ma solo quando c’è la canzone giusta, il vestito giusto e nessuno che ti guarda. Una combinazione che capita due volte l’anno.","😜 Si scherza"],
+["🐧","Pinguini Tattici Nucleari","Li ascolti a ogni ora del giorno. Anche i pinguini veri iniziano a pensare di emigrare.","😜 Si scherza"],
+["🧳","Viaggiare cambia la vita","Ogni viaggio per te è una svolta esistenziale. Poi torni con le stesse occhiaie e dieci foto di un muro.","😜 Si scherza"],
+["🎬","Genio del cinema","Conosci a memoria tutti i film di Checco Zalone e li citi a tavola. Il tuo talento da attrice si ferma lì.","😜 Si scherza"],
+["🥵","Gambero in Sicilia","Arrivi in estate pallida come un cuscino e in due settimane diventi un gambero. Ci vuole talento.","😜 Si scherza"],
+["🇮🇹","Nord e Sud","A Torino parli della Sicilia con nostalgia, in Sicilia parli di Torino con nostalgia. Decidi dove vivere, una buona volta.","😜 Si scherza"],
+["🔍","Analisi del fratello","Hai detto che sono “arrogante, presuntuoso e chissà cos’altro”. Sì, ma sono anche la tua cavia preferita: ringraziami.","😜 Si scherza"],
+["🚗","Patente d’artista","Guidi la macchina come un carrello della spesa: a zig zag e con molta fede. Persino l’istruttore di guida ha iniziato a pregare.","😜 Si scherza"],
+["🏙️","Torino è tutto","Dici che Torino ti rende felice. Ok, ma non è obbligatorio ricordarcelo a colazione, pranzo e cena.","😜 Si scherza"],
+["🎂","Oggi è il mio giorno","Oggi è il mio compleanno. Non è obbligatorio farmi un regalo enorme, ma un pacchetto vero, con il fiocco, mi aspetto di trovarlo.","🎂 Compleanno"],
+["🍿","Cinema d’autore","Per te il cinema d’autore è Checco Zalone. Il Festival di Cannes ha già bloccato il tuo numero.","😜 Si scherza"],
+["🌊","Mare d’inverno","Ci vai anche a dicembre solo per dire “che pace”. Sei l’unica che trema in spiaggia e dice “che meraviglia”.","😜 Si scherza"],
+["🎄","Buon Natale, Martina","Auguri di buon natale! Poi non dire che non sono un bravo fratello: ora aspetto un regalo.","😜 Si scherza"]
+];
+
+const $=id=>document.getElementById(id);
+let opened=[],prev=false;
+const SH=["tall","arch","round","wide","square","big","arch","tall","round","square","wide","arch"];
+try{opened=JSON.parse(localStorage.getItem("martina-avvento-2026")||"[]")}catch(e){}
+const now=new Date(),todayD=now.getMonth()===11?now.getDate():(now.getFullYear()>0&&now.getMonth()===0?99:0);
+opened=opened.filter(d=>d<=todayD);
+const save=()=>{try{localStorage.setItem("martina-avvento-2026",JSON.stringify(opened))}catch(e){}};
+function render(){
+  const g=$("grid");g.innerHTML="";
+  M.forEach((m,i)=>{
+    const d=i+1,isOpen=opened.includes(d),can=prev||d<=todayD;
+    const b=document.createElement("button");
+    b.className="door s-"+SH[i%12]+(isOpen?" open":"")+(d===todayD?" today":"");
+    b.disabled=!can;
+    b.setAttribute("aria-label","Casella "+d+(can?"":", ancora chiusa"));
+    b.innerHTML='<i class="in">'+m[0]+'</i><i class="lf"><b>'+d+'</b><small>'+(can?'':'🔒')+'</small></i>';
+    b.onclick=()=>show(d);
+    g.appendChild(b);
+  });
+  $("count").textContent=opened.length+" / 24 aperte";
+}
+function show(d){
+  const m=M[d-1];
+  $("mn").textContent=d+" dicembre · "+m[3];$("me").textContent=m[0];
+  $("mt").textContent=m[1];$("mp").textContent=m[2];
+  const isNew=!opened.includes(d);
+  if(isNew){opened.push(d);save();$("grid").children[d-1].classList.add("open");$("count").textContent=opened.length+" / 24 aperte"}
+  setTimeout(()=>$("modal").classList.add("on"),isNew?850:0);
+}
+$("close").onclick=()=>$("modal").classList.remove("on");
+$("modal").onclick=e=>{if(e.target.id==="modal")$("modal").classList.remove("on")};
+$("theme").onclick=()=>{
+  const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme=dark?"light":"dark";$("theme").textContent=dark?"🌙":"☀️";
+};
+const L=document.createElement("div");L.className="lights";L.setAttribute("aria-hidden","true");
+const cols=["#ff4d5a","#f0bf62","#5be08a","#6bb8ff"];
+for(let i=0;i<14;i++){const b=document.createElement("i");b.style.cssText="--c:"+cols[i%4]+";margin-top:"+(i%2?14:4)+"px;animation-delay:-"+(i*0.37)+"s";L.appendChild(b)}
+document.body.appendChild(L);
+const s=$("snow");
+for(let i=0;i<22;i++){const f=document.createElement("i");f.textContent=i%3?"❄":"✦";
+  f.style.cssText="left:"+Math.random()*100+"%;font-size:"+(10+Math.random()*14)+"px;animation-duration:"+(9+Math.random()*10)+"s;animation-delay:-"+Math.random()*15+"s";s.appendChild(f)}
+function enter(){
+  const g=$("gate");if(g.classList.contains("opening"))return;
+  g.classList.add("opening");
+  setTimeout(()=>{$("main").classList.remove("hidden");document.body.classList.remove("locked");g.classList.add("gone")},1100);
+  setTimeout(()=>{g.style.display="none"},1900);
+}
+$("gate").onclick=enter;
+$("gate").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();enter()}};
+const CODE="Y2ljY2lvYmVsbG8=";
+const hideLock=()=>{$("lock").style.display="none"};
+try{if(localStorage.getItem("martina-ok")===CODE)hideLock()}catch(e){}
+function tryCode(){
+  let good=false;try{good=btoa($("code").value.trim().toLowerCase())===CODE}catch(e){}
+  if(good){try{localStorage.setItem("martina-ok",CODE)}catch(e){}hideLock()}
+  else $("err").textContent="Parola sbagliata, riprova 🙈";
+}
+$("go").onclick=tryCode;
+$("code").onkeydown=e=>{if(e.key==="Enter")tryCode()};
+const T=new Date(2026,11,1,0,0,0);
+function tick(){
+  const ms=Math.max(0,T-new Date()),t=Math.floor(ms/1000),p=n=>String(n).padStart(2,"0");
+  const v=[[p(Math.floor(t/86400)),"giorni"],[p(Math.floor(t%86400/3600)),"ore"],[p(Math.floor(t%3600/60)),"min"],[p(t%60),"sec"]];
+  $("cd").innerHTML=v.map(a=>"<div><b>"+a[0]+"</b><small>"+a[1]+"</small></div>").join("");
+}
+tick();setInterval(tick,1000);
+const gs=document.createElement("div");gs.className="snow";gs.setAttribute("aria-hidden","true");
+for(let i=0;i<34;i++){const f=document.createElement("i");f.textContent=i%3?"❄":"✦";
+  f.style.cssText="left:"+Math.random()*100+"%;font-size:"+(10+Math.random()*14)+"px;animation-duration:"+(7+Math.random()*8)+"s;animation-delay:-"+Math.random()*12+"s";gs.appendChild(f)}
+$("gate").prepend(gs);
+render();
+</script>
+</body>
+</html>

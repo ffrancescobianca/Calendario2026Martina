@@ -267,7 +267,7 @@ try{if(localStorage.getItem("martina-ok")===CODE)hideLock()}catch(e){}
 function tryCode(){
   let good=false;try{good=btoa($("code").value.trim().toLowerCase())===CODE}catch(e){}
   if(good){try{localStorage.setItem("martina-ok",CODE)}catch(e){}hideLock()}
-  else $("err").textContent="Parola sbagliata, riprova 🙈";
+  else $("err").textContent="Che scema!😂";
 }
 $("go").onclick=tryCode;
 $("code").onkeydown=e=>{if(e.key==="Enter")tryCode()};
